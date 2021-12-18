@@ -7,22 +7,25 @@ env: ## Set Environment Variables
 	@. env.sh
 
 init: env ## Initializes the terraform remote state backend and pulls the correct projects state.
-	@terraform -chdir=./terraform init
+	@terraform init
 
 update: ## Gets any module updates
-	@terraform -chdir=./terraform get -update=true &>/dev/null
+	@terraform get -update=true &>/dev/null
 
 plan: init update ## Runs a plan. 
-	@terraform -chdir=./terraform plan
+	@terraform plan
 
 show: init ## Shows a module
-	@terraform -chdir=./terraform show -module-depth=-1
+	@terraform show -module-depth=-1
 
 apply: init update ## Run a apply.
-	@terraform -chdir=./terraform apply
+	@terraform apply
 
 output: update ## Show outputs of a module or the entire state.
-	@if [ -z $(MODULE) ]; then terraform -chdir=./terraform output ; else terraform output -module=$(MODULE) ; fi
+	@if [ -z $(MODULE) ]; then terraform output ; else terraform output -module=$(MODULE) ; fi
 
 destroy: init update ## Destroys targets
-	@terraform -chdir=./terraform destroy
+	@terraform destroy
+
+lint: ## Runs lint on all files.
+	@pre-commit run -a
