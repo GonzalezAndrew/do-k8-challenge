@@ -17,13 +17,18 @@ terraform {
 }
 
 module "k8" {
-  source         = "./kubernetes-cluster"
+  source         = "./modules/kubernetes-cluster"
+  cluster_name   = "ds9"
   node_pool_name = "default"
   node_count     = 2
 }
 
 module "k8-config" {
-  source       = "./kubernetes-config"
-  cluster_name = module.k8.cluster_name
-  cluster_id   = module.k8.cluster_id
+  source                 = "./modules/kubernetes-config"
+  cluster_name           = module.k8.cluster_name
+  cluster_id             = module.k8.cluster_id
+  kube_config            = module.k8.kube_config
+  host                   = module.k8.cluster_endpoint
+  token                  = module.k8.token
+  cluster_ca_certificate = module.k8.cluster_ca_certificate
 }
