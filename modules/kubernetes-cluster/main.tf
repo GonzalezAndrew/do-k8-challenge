@@ -1,7 +1,8 @@
+data "digitalocean_kubernetes_versions" "this" {}
 resource "digitalocean_kubernetes_cluster" "this" {
   name    = var.cluster_name
   region  = var.region
-  version = var.k8_version
+  version = data.digitalocean_kubernetes_versions.this.latest_version
 
   node_pool {
     name       = var.node_pool_name

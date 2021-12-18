@@ -9,11 +9,6 @@ variable "cluster_name" {
   default     = "voyager"
   type        = string
 }
-variable "k8_version" {
-  description = "The slug identifier for the version of Kubernetes to deploy. Use doctl to find the available versions. (doctl kubernetes options version)"
-  default     = "1.21.5-do.0"
-  type        = string
-}
 
 variable "node_pool_name" {
   description = "A name for the node pool."
