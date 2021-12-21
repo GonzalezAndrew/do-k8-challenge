@@ -27,3 +27,15 @@ variable "node_count" {
   default     = 1
   type        = number
 }
+
+variable "project_name" {
+  description = "The name of the Project"
+  type        = string
+  default     = "DigitalOcean K8 Challenge"
+}
+
+variable "project_description" {
+  description = "The description of the project."
+  type        = string
+  default     = "A project for the DigitalOcean K8 Challenge."
+}

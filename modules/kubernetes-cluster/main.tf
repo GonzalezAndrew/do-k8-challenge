@@ -10,3 +10,9 @@ resource "digitalocean_kubernetes_cluster" "this" {
     node_count = var.node_count
   }
 }
+
+resource "digitalocean_project" "this" {
+  name        = var.project_name
+  description = var.project_description
+  resources   = [digitalocean_kubernetes_cluster.this.urn]
+}
