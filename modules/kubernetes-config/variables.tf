@@ -8,12 +8,6 @@ variable "cluster_id" {
   type        = string
 }
 
-variable "write_kubeconfig" {
-  description = "Write the kubeconfig to a file."
-  type        = bool
-  default     = true
-}
-
 variable "host" {
   description = "The base URL of the API server on the Kubernetes master node."
   type        = string

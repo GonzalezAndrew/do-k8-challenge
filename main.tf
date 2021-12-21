@@ -19,7 +19,7 @@ terraform {
 module "k8" {
   source         = "./modules/kubernetes-cluster"
   cluster_name   = "ds9"
-  node_pool_name = "default"
+  node_pool_name = "worker-pool"
   node_count     = 2
 }
 

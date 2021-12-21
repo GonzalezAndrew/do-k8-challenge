@@ -16,8 +16,8 @@
 
 | Name | Version |
 |------|---------|
+| <a name="provider_helm"></a> [helm](#provider\_helm) | >= 2.0.1 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | >= 2.0.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | n/a |
 
 ## Modules
 
@@ -27,8 +27,8 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [helm_release.argocd](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
 | [kubernetes_namespace.argocd](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
-| [local_file.kubeconfig](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 
 ## Inputs
 
@@ -40,7 +40,6 @@ No modules.
 | <a name="input_host"></a> [host](#input\_host) | The base URL of the API server on the Kubernetes master node. | `string` | n/a | yes |
 | <a name="input_kube_config"></a> [kube\_config](#input\_kube\_config) | The full contents of the Kubernetes cluster's kubeconfig file. | `any` | n/a | yes |
 | <a name="input_token"></a> [token](#input\_token) | The DigitalOcean API access token used by clients to access the cluster. | `any` | n/a | yes |
-| <a name="input_write_kubeconfig"></a> [write\_kubeconfig](#input\_write\_kubeconfig) | Write the kubeconfig to a file. | `bool` | `true` | no |
 
 ## Outputs
 
