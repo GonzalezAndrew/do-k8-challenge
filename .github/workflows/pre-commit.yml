@@ -11,7 +11,7 @@ jobs:
     container:
       image: ghcr.io/antonbabenko/pre-commit-terraform:latest
       volumes:
-        - $GITHUB_WORKSPACE:/lint
+        - ${{ github.workspace }}:/lint
     steps:
       - name: Run pre-commit
         run: |
