@@ -34,6 +34,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_argo_version"></a> [argo\_version](#input\_argo\_version) | The version of Argo to install. | `string` | `"3.13.0"` | no |
 | <a name="input_cluster_ca_certificate"></a> [cluster\_ca\_certificate](#input\_cluster\_ca\_certificate) | The base64 encoded public certificate for the cluster's certificate authority. | `any` | n/a | yes |
 | <a name="input_cluster_id"></a> [cluster\_id](#input\_cluster\_id) | A unique ID that can be used to identify and reference a Kubernetes cluster. | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | A name for the Kubernetes cluster. | `string` | n/a | yes |

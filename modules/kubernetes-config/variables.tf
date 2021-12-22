@@ -24,3 +24,9 @@ variable "cluster_ca_certificate" {
 variable "kube_config" {
   description = "The full contents of the Kubernetes cluster's kubeconfig file."
 }
+
+variable "argo_version" {
+  description = "The version of Argo to install."
+  type        = string
+  default     = "3.13.0"
+}

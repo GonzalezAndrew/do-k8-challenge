@@ -1,11 +1,3 @@
-# resource "local_file" "kubeconfig" {
-#   depends_on = [
-#     var.cluster_id
-#   ]
-#   content  = var.kube_config
-#   filename = join("/", [path.module, "kubeconfig.yaml"])
-# }
-
 resource "kubernetes_namespace" "argocd" {
   metadata {
     name = "argocd"
@@ -14,10 +6,10 @@ resource "kubernetes_namespace" "argocd" {
 
 resource "helm_release" "argocd" {
   name       = "argocd"
-  namespace  = "argocd"
+  namespace  = kubernetes_namespace.argocd.metadata.0.name
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
-  version    = "3.13.0"
+  version    = var.argo_version
 
   set {
     name  = "server.extraArgs"
